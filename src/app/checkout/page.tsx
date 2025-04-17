@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 // Mock cart data - in a real app, this would come from your state management
 const cartItems = [

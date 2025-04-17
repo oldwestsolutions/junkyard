@@ -47,7 +47,7 @@ export default function Home() {
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [featuredParts.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % featuredParts.length);
@@ -255,13 +255,13 @@ export default function Home() {
                 key={category.title}
                 className="retro-card group relative overflow-hidden"
               >
-                <div className="relative h-48 w-full">
-                  <img
+                <div className="relative h-48">
+                  <Image
                     src={category.image}
                     alt={category.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    fill
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-bold mb-2 [text-shadow:1px_1px_0px_#000000]">
