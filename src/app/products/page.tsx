@@ -123,36 +123,39 @@ export default function ProductsPage() {
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedProducts.map((product) => (
-            <div
+            <Link
               key={product.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              href={`/products/${product.id}`}
+              className="block"
             >
-              <div className="relative h-48">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {product.name}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-bold text-red-600">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  <div className="flex items-center">
-                    <span className="text-yellow-400 mr-1">★</span>
-                    <span className="text-gray-600">{product.rating}</span>
-                  </div>
+              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative h-48">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <button className="mt-4 w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors">
-                  Add to Cart
-                </button>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {product.name}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xl font-bold text-red-600">
+                      ${product.price.toFixed(2)}
+                    </span>
+                    <div className="flex items-center">
+                      <span className="text-yellow-400 mr-1">★</span>
+                      <span className="text-gray-600">{product.rating}</span>
+                    </div>
+                  </div>
+                  <button className="mt-4 w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors">
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
